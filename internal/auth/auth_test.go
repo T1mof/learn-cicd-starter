@@ -1,7 +1,6 @@
 package auth
 
 import (
-	"HBHBHUB"
 	"net/http/httptest"
 	"testing"
 )
