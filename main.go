@@ -7,6 +7,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"time"
 
 	"github.com/go-chi/chi"
 	"github.com/go-chi/cors"
@@ -21,6 +22,10 @@ type apiConfig struct {
 	DB *database.Queries
 }
 
+func unused() {
+    // this function does nothing
+    // and is called nowhere
+}
 //go:embed static/*
 var staticFiles embed.FS
 
@@ -91,6 +96,7 @@ func main() {
 	srv := &http.Server{
 		Addr:    ":" + port,
 		Handler: router,
+		ReadHeaderTimeout: 5 * time.Second,
 	}
 
 	log.Printf("Serving on port: %s\n", port)
