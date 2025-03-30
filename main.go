@@ -23,9 +23,10 @@ type apiConfig struct {
 }
 
 func unused() {
-    // this function does nothing
-    // and is called nowhere
+	// this function does nothing
+	// and is called nowhere
 }
+
 //go:embed static/*
 var staticFiles embed.FS
 
@@ -94,8 +95,8 @@ func main() {
 
 	router.Mount("/v1", v1Router)
 	srv := &http.Server{
-		Addr:    ":" + port,
-		Handler: router,
+		Addr:              ":" + port,
+		Handler:           router,
 		ReadHeaderTimeout: 5 * time.Second,
 	}
 
